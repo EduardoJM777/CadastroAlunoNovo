@@ -5,16 +5,16 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Disciplina {
+public class Lancamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String codigo;
-    private String descricao;
-    private String ementa;
 
     @ManyToOne
-    private Professor professor;
+    private Aluno aluno;
+
+    @ManyToOne
+    private Disciplina disciplina;
 
 }

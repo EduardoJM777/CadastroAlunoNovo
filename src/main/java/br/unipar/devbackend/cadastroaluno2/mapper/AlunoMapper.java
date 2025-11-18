@@ -18,7 +18,7 @@ public class AlunoMapper {
         if (alunoDTO == null) return null;
 
         Disciplina disciplina = new Disciplina();
-        disciplina.getDescricao(alunoDTO.curso());
+        disciplina.setDescricao(alunoDTO.curso());
 
         Aluno aluno = new Aluno();
         aluno.setNome(alunoDTO.nome());
