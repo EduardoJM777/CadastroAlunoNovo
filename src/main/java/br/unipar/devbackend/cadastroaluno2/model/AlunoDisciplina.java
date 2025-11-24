@@ -10,8 +10,6 @@ public class AlunoDisciplina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String aluno;
-    private String disciplina;
     private Double nota1Bim;
     private Double nota2Bim;
     private Integer faltas1Bim;

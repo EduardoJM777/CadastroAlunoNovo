@@ -16,6 +16,5 @@ public class Professor {
     private String matricula;
     private String nome;
     private String cpf;
-    private String dtAdmissao;
 
 }

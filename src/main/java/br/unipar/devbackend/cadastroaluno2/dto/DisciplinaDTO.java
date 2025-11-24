@@ -6,5 +6,4 @@ public record DisciplinaDTO(Long id,
                             String codigo,
                             String descricao,
                             String ementa,
-                            Professor professor) {
-}
+                            Long idProfessor) {}

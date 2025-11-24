@@ -3,7 +3,6 @@ package br.unipar.devbackend.cadastroaluno2.dto;
 import java.util.Date;
 
 public record AulasDadasDTO(Long id,
-                            String disciplina,
+                            Long idDisciplina,
                             Date data,
-                            String observacoes) {
-}
+                            String observacoes) {}

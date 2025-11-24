@@ -3,8 +3,6 @@ package br.unipar.devbackend.cadastroaluno2.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @Entity
 @Data
 public class Aluno {
@@ -15,11 +13,10 @@ public class Aluno {
     private String nome;
     private String cpf;
     private String ra;
-    private LocalDate dataNascimento;
-    private LocalDate dataMatricula;
-    private LocalDate periodoAtual;
+    private Integer anoIngresso;
+    private Integer periodoAtual;
 
     @ManyToOne
-    private Disciplina curso;
+    private Disciplina disciplina;
 
 }

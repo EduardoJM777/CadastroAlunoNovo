@@ -2,8 +2,10 @@ package br.unipar.devbackend.cadastroaluno2.dto;
 
 import java.time.LocalDate;
 
-public record AlunoDTO(String ra,
+public record AlunoDTO(Long id,
+                       String cpf,
+                       String ra,
                        String nome,
-                       LocalDate dataNascimento,
-                       String curso){
-}
+                       Integer anoIngresso,
+                       Integer periodoAtual,
+                       Long idDisciplina){}

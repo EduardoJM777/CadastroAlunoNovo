@@ -1,4 +1,4 @@
 package br.unipar.devbackend.cadastroaluno2.controller;
 
-public class AulasDadasPresenciaisController {
+public class AulasDadasPresencasController {
 }

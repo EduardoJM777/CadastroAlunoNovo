@@ -2,32 +2,44 @@ package br.unipar.devbackend.cadastroaluno2.mapper;
 
 import br.unipar.devbackend.cadastroaluno2.dto.AlunoDTO;
 import br.unipar.devbackend.cadastroaluno2.model.Aluno;
-import br.unipar.devbackend.cadastroaluno2.model.Disciplina;
+import br.unipar.devbackend.cadastroaluno2.repository.DisciplinaRepository;
 
 public class AlunoMapper {
 
-    public AlunoDTO alunoToDTO(Aluno aluno){
+    private DisciplinaRepository disciplinaRepository;
+
+    public Aluno toEntity (AlunoDTO dto){
+        if (dto == null) return null;
+
+        Aluno entity = new Aluno();
+        entity.setId(dto.id());
+        entity.setCpf(dto.cpf());
+        entity.setRa(dto.ra());
+        entity.setNome(dto.nome());
+        entity.setAnoIngresso(dto.anoIngresso());
+        entity.setPeriodoAtual(dto.periodoAtual());
+
+        entity.setDisciplina(
+                disciplinaRepository.findById(dto.idDisciplina())
+                        .orElseThrow(() -> new RuntimeException("Disciplina não encontrada"))
+        );
+
+        return entity;
+    }
+
+    public AlunoDTO toDTO(Aluno entity){
+        if (entity == null) return null;
+
         return new AlunoDTO(
-                aluno.getRa(),
-                aluno.getNome(),
-                aluno.getDataNascimento(),
-                aluno.getCurso() != null ? aluno.getCurso().getDescricao() : null);
-    }
+            entity.getId(),
+            entity.getCpf(),
+            entity.getRa(),
+            entity.getNome(),
+            entity.getAnoIngresso(),
+            entity.getPeriodoAtual(),
+            entity.getDisciplina().getId()
+        );
 
-    public Aluno DTOtoAluno(AlunoDTO alunoDTO){
-        if (alunoDTO == null) return null;
-
-        Disciplina disciplina = new Disciplina();
-        disciplina.setDescricao(alunoDTO.curso());
-
-        Aluno aluno = new Aluno();
-        aluno.setNome(alunoDTO.nome());
-        aluno.setRa(alunoDTO.ra());
-        aluno.setCurso(disciplina);
-        aluno.setDataNascimento(alunoDTO.dataNascimento());
-
-        return aluno;
+        }
 
     }
-
-}
