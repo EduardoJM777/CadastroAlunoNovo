@@ -3,9 +3,13 @@ package br.unipar.devbackend.cadastroaluno2.mapper;
 import br.unipar.devbackend.cadastroaluno2.dto.AlunoDTO;
 import br.unipar.devbackend.cadastroaluno2.model.Aluno;
 import br.unipar.devbackend.cadastroaluno2.repository.DisciplinaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AlunoMapper {
 
+    @Autowired
     private DisciplinaRepository disciplinaRepository;
 
     public Aluno toEntity (AlunoDTO dto){

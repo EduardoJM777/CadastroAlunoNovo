@@ -1,7 +1,6 @@
 package br.unipar.devbackend.cadastroaluno2.mapper;
 
 import br.unipar.devbackend.cadastroaluno2.dto.AlunoDisciplinaDTO;
-import br.unipar.devbackend.cadastroaluno2.model.Aluno;
 import br.unipar.devbackend.cadastroaluno2.model.AlunoDisciplina;
 import br.unipar.devbackend.cadastroaluno2.repository.AlunoRepository;
 import br.unipar.devbackend.cadastroaluno2.repository.DisciplinaRepository;
