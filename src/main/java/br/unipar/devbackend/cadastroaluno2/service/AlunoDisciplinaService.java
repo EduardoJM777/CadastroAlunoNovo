@@ -2,6 +2,7 @@ package br.unipar.devbackend.cadastroaluno2.service;
 
 import br.unipar.devbackend.cadastroaluno2.model.AlunoDisciplina;
 import br.unipar.devbackend.cadastroaluno2.repository.AlunoDisciplinaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class AlunoDisciplinaService {
 
+    @Autowired
     private final AlunoDisciplinaRepository adRepository;
 
     public AlunoDisciplinaService(AlunoDisciplinaRepository adRepository){
