@@ -14,18 +14,15 @@ import java.util.List;
 @RequestMapping("/auladada")
 @CrossOrigin(origins = "*")
 public class AulasDadasPresencasController {
+
     private final AulasDadasPresencasService adpService;
+
     public AulasDadasPresencasController(AulasDadasPresencasService adpService){
         this.adpService = adpService;
     }
 
-    @GetMapping("/todos")
-    public List<AulasDadasPresencasDTO> getAllAulas(){
-        return adpService.getAllAulas();
-    }
-
     @PostMapping
-    public AulasDadas cadastrar(@RequestBody AulasDadasPresencas aulasDadasPresencas) {
+    public AulasDadasPresencas cadastrar(@RequestBody AulasDadasPresencas aulasDadasPresencas) {
         return adpService.salvar(aulasDadasPresencas);
     }
 

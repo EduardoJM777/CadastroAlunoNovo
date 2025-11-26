@@ -14,14 +14,11 @@ import java.util.List;
 @RequestMapping("/aluno/{idAluno}")
 @CrossOrigin(origins = "*")
 public class LancamentoController {
+
     private final LancamentoService lancamentoService;
+
     public LancamentoController(LancamentoService lancamentoService){
         this.lancamentoService = lancamentoService;
-    }
-
-    @GetMapping("/todos")
-    public List<LancamentoDTO> getAllLancamentos(){
-        return lancamentoService.getAllLancamento();
     }
 
     @PostMapping

@@ -24,11 +24,11 @@ public class ProfessorService {
         return professorRepository.findById(id).orElseThrow(() -> new RuntimeException("id não encontrado"));
     }
 
-    public List<Professor> buscarTodos(){
+    public List<Professor> listar(){
         return professorRepository.findAll();
     }
 
-    public Professor atualizar(Professor pf, Long id){
+    public Professor atualizar(Long id, Professor pf){
         return professorRepository.findById(id).map(professor -> {
             professor.setNome(pf.getNome());
             professor.setCpf(pf.getCpf());

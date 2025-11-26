@@ -17,14 +17,11 @@ import java.util.List;
 @RequestMapping("/professor")
 @CrossOrigin(origins = "*")
 public class ProfessorController {
+
     private final ProfessorService professorService;
+
     public ProfessorController(ProfessorService professorService){
         this.professorService = professorService;
-    }
-
-    @GetMapping("/todos")
-    public List<ProfessorDTO> getAllProfessor(){
-        return professorService.getAllProfessor();
     }
 
     @PostMapping
@@ -44,6 +41,6 @@ public class ProfessorController {
 
     @PutMapping("/{id}")
     public Professor atualizar(@PathVariable Long id, @RequestBody Professor professor) {
-        return professor.atualizar(id, professor);
+        return professorService.atualizar(id, professor);
     }
 }

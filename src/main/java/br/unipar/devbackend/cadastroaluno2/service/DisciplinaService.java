@@ -24,7 +24,7 @@ public class DisciplinaService {
         return disciplinaRepository.findAll();
     }
 
-    public Disciplina atualizar(Disciplina ds, Long id){
+    public Disciplina atualizar(Long id, Disciplina ds){
         return disciplinaRepository.findById(id).map(disciplina -> {
             disciplina.setCodigo(ds.getCodigo());
             disciplina.setDescricao(ds.getDescricao());

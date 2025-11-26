@@ -19,7 +19,7 @@ public class LancamentoService {
         return lancamentoRepository.save(lancamento);
     }
 
-    public List<Lancamento> listarTodos(){
+    public List<Lancamento> listar(){
         return lancamentoRepository.findAll();
     }
 
@@ -27,7 +27,7 @@ public class LancamentoService {
         return lancamentoRepository.findById(id).orElseThrow(() -> new RuntimeException("id não encontrado"));
     }
 
-    public Lancamento atualizar(Lancamento lc, Long id){
+    public Lancamento atualizar(Long id, Lancamento lc){
         return lancamentoRepository.findById(id)
                 .map(lancamento -> {
                     lancamento.setAluno(lc.getAluno());
