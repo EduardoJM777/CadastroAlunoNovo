@@ -2,6 +2,7 @@ package br.unipar.devbackend.cadastroaluno2.service;
 
 import br.unipar.devbackend.cadastroaluno2.model.AlunoDisciplina;
 import br.unipar.devbackend.cadastroaluno2.repository.AlunoDisciplinaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class AlunoDisciplinaService {
 
+    @Autowired
     private final AlunoDisciplinaRepository adRepository;
 
     public AlunoDisciplinaService(AlunoDisciplinaRepository adRepository){
@@ -23,11 +25,19 @@ public class AlunoDisciplinaService {
         return adRepository.findAll();
     }
 
-//    public AlunoDisciplina atualizar(Long id, AlunoDisciplina adAtualizada){
-//        return adRepository.findById(id).map(alunoDisciplina -> {
-//            alunoDisciplina.set
-//        })
-//    }
+    public AlunoDisciplina atualizar(Long id, AlunoDisciplina adAtualizada){
+        return adRepository.findById(id).map(alunoDisciplina -> {
+            alunoDisciplina.setNota1Bim(adAtualizada.getNota1Bim());
+            alunoDisciplina.setNota2Bim(adAtualizada.getNota2Bim());
+            alunoDisciplina.setFaltas1Bim(adAtualizada.getFaltas1Bim());
+            alunoDisciplina.setFaltas2Bim(adAtualizada.getFaltas2Bim());
+            alunoDisciplina.setMatriculado(adAtualizada.getMatriculado());
+            alunoDisciplina.setSituacao(adAtualizada.getSituacao());
+            alunoDisciplina.setAluno(adAtualizada.getAluno());
+            alunoDisciplina.setDisciplina(adAtualizada.getDisciplina());
+            return adRepository.save(alunoDisciplina);
+        }).orElseThrow(() -> new RuntimeException("Não encontrada(o)"));
+    }
 
     public AlunoDisciplina buscarPorId(Long id){
         return adRepository.findById(id).orElseThrow(() -> new RuntimeException("Não encontrada(o)"));
