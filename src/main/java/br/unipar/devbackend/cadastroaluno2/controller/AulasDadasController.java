@@ -15,14 +15,11 @@ import java.util.List;
 @RequestMapping("/aula/disciplina")
 @CrossOrigin(origins = "*")
 public class AulasDadasController {
+
     private final AulasDadasService aulasDadasService;
+
     public AulasDadasController(AulasDadasService aulasDadasService){
         this.aulasDadasService = aulasDadasService;
-    }
-
-    @GetMapping("/todos")
-    public List<AulasDadasDTO> getAllAulas(){
-        return aulasDadasService.getAllAulas();
     }
 
     @PostMapping

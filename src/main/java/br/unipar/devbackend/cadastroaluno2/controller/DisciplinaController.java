@@ -11,23 +11,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/disicplina")
+@RequestMapping("/disciplina")
 @CrossOrigin(origins = "*")
 public class DisciplinaController {
 
     private final DisciplinaService disciplinaService;
+
     public DisciplinaController(DisciplinaService disciplinaService){
         this.disciplinaService = disciplinaService;
     }
 
-    @GetMapping("/todos")
-    public List<DisciplinaDTO> getAllDisciplinas(){
-        return disciplinaService.getAllDisciplinas();
-    }
-
     @PostMapping
-    public DisciplinaService cadastrar(@RequestBody DisciplinaService disciplinaService) {
-        return disciplinaService.salvar(disciplinaService);
+    public Disciplina cadastrar(@RequestBody Disciplina disciplina) {
+        return disciplinaService.salvar(disciplina);
     }
 
     @GetMapping
@@ -42,6 +38,6 @@ public class DisciplinaController {
 
     @PutMapping("/{id}")
     public Disciplina atualizar(@PathVariable Long id, @RequestBody Disciplina disciplina) {
-        return disciplina.atualizar(id, disciplina);
+        return disciplinaService.atualizar(id, disciplina);
     }
 }

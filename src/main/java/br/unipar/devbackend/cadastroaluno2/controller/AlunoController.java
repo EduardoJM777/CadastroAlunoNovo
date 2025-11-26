@@ -18,11 +18,6 @@ public class AlunoController {
         this.alunoService = alunoService;
     }
 
-    @GetMapping("/todos")
-    public List<AlunoDTO> getAllAlunos(){
-        return alunoService.getAllAlunos();
-    }
-
     @PostMapping
     public Aluno cadastrar(@RequestBody Aluno aluno) {
         return alunoService.salvar(aluno);
