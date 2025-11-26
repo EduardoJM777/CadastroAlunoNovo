@@ -9,8 +9,10 @@ import java.util.List;
 
 @Service
 public class LancamentoService {
-    @Autowired
+
     private final LancamentoRepository lancamentoRepository;
+
+    @Autowired
     public LancamentoService(LancamentoRepository lancamentoRepository) {
         this.lancamentoRepository = lancamentoRepository;
     }

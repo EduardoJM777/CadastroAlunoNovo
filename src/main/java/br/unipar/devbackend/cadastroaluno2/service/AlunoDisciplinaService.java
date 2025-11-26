@@ -10,9 +10,10 @@ import java.util.List;
 @Service
 public class AlunoDisciplinaService {
 
-    @Autowired
+
     private final AlunoDisciplinaRepository adRepository;
 
+    @Autowired
     public AlunoDisciplinaService(AlunoDisciplinaRepository adRepository){
         this.adRepository = adRepository;
     }

@@ -13,9 +13,10 @@ import java.util.List;
 @Service
 public class AulasDadasPresencasService {
 
-    @Autowired
+
     private final AulasDadasPresencasRepository adpRepository;
 
+    @Autowired
     public AulasDadasPresencasService(AulasDadasPresencasRepository adpRepository){
         this.adpRepository = adpRepository;
     }

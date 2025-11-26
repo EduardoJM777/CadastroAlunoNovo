@@ -10,8 +10,10 @@ import java.util.List;
 
 @Service
 public class ProfessorService {
-    @Autowired
+
     private final ProfessorRepository professorRepository;
+
+    @Autowired
     public ProfessorService(ProfessorRepository professorRepository){
         this.professorRepository = professorRepository;
     }

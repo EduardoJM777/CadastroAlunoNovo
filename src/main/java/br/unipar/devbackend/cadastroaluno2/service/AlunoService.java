@@ -14,9 +14,10 @@ import java.util.List;
 @Service
 public class AlunoService {
 
-    @Autowired
+
     private final AlunoRepository repository;
 
+    @Autowired
     public AlunoService(AlunoRepository repository){
         this.repository = repository;
     }
