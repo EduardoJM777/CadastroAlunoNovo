@@ -1,12 +1,8 @@
 package br.unipar.devbackend.cadastroaluno2.controller;
 
-
-import br.unipar.devbackend.cadastroaluno2.dto.AlunoDisciplinaDTO;
-import br.unipar.devbackend.cadastroaluno2.dto.AulasDadasDTO;
+import br.unipar.devbackend.cadastroaluno2.dto.AtualizarPrimeiroBimestreDTO;
 import br.unipar.devbackend.cadastroaluno2.model.AlunoDisciplina;
-import br.unipar.devbackend.cadastroaluno2.model.AulasDadas;
 import br.unipar.devbackend.cadastroaluno2.service.AlunoDisciplinaService;
-import br.unipar.devbackend.cadastroaluno2.service.AulasDadasService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,4 +37,14 @@ public class AlunoDisciplinaController {
     public AlunoDisciplina atualizar(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
         return adService.atualizar(id, alunoDisciplina);
     }
+
+    public AlunoDisciplina atualizar1b(
+            @PathVariable Long idAluno,
+            @PathVariable Long idDisciplina,
+            @RequestBody AtualizarPrimeiroBimestreDTO dto){
+
+        return adService.atualizar2b(idAluno, idDisciplina, dto);
+    }
+
+
 }

@@ -1,5 +1,7 @@
 package br.unipar.devbackend.cadastroaluno2.dto;
 
+import br.unipar.devbackend.cadastroaluno2.model.Situacao;
+
 public record AlunoDisciplinaDTO (Long id,
                                   Long alunoId,
                                   Long disciplinaId,
@@ -8,4 +10,4 @@ public record AlunoDisciplinaDTO (Long id,
                                   Integer falta1bim,
                                   Integer falta2bim,
                                   Boolean matriculado,
-                                  Enum situacao){}
+                                  Situacao situacao){}

@@ -15,7 +15,9 @@ public class AlunoDisciplina {
     private Integer faltas1Bim;
     private Integer faltas2Bim;
     private Boolean matriculado;
-    private Enum situacao;
+
+    @Enumerated(EnumType.STRING)
+    private Situacao situacao;
 
     @ManyToOne
     private Aluno aluno;
