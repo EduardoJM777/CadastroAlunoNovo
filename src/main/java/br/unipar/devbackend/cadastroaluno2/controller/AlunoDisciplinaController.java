@@ -1,12 +1,9 @@
 package br.unipar.devbackend.cadastroaluno2.controller;
 
-
-import br.unipar.devbackend.cadastroaluno2.dto.AlunoDisciplinaDTO;
-import br.unipar.devbackend.cadastroaluno2.dto.AulasDadasDTO;
+import br.unipar.devbackend.cadastroaluno2.dto.Att1BimDTO;
+import br.unipar.devbackend.cadastroaluno2.dto.Att2BimDTO;
 import br.unipar.devbackend.cadastroaluno2.model.AlunoDisciplina;
-import br.unipar.devbackend.cadastroaluno2.model.AulasDadas;
 import br.unipar.devbackend.cadastroaluno2.service.AlunoDisciplinaService;
-import br.unipar.devbackend.cadastroaluno2.service.AulasDadasService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +15,7 @@ public class AlunoDisciplinaController {
 
     private final AlunoDisciplinaService adService;
 
-    public AlunoDisciplinaController(AlunoDisciplinaService adService){
+    public AlunoDisciplinaController(AlunoDisciplinaService adService) {
         this.adService = adService;
     }
 
@@ -41,12 +38,22 @@ public class AlunoDisciplinaController {
     public AlunoDisciplina atualizar(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
         return adService.atualizar(id, alunoDisciplina);
     }
-    @PutMapping("/1bim/{id}")
-    public AlunoDisciplina atualizar1b(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
-        return adService.atualizar1b(id, alunoDisciplina);
+
+    @PutMapping("/{idAluno}/disciplina/{idDisciplina}/1bim")
+    public AlunoDisciplina atualizar1Bim(
+            @PathVariable Long idAluno,
+            @PathVariable Long idDisciplina,
+            @RequestBody Att1BimDTO dto) {
+
+        return adService.Att1Bim(idAluno, idDisciplina, dto);
     }
-    @PutMapping("/2bim/{id}")
-    public AlunoDisciplina atualizar2b(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
-        return adService.atualizar2b(id, alunoDisciplina);
+
+    @PutMapping("/{idAluno}/disciplina/{idDisciplina}/2bim")
+    public AlunoDisciplina atualizar2Bim(
+            @PathVariable Long idAluno,
+            @PathVariable Long idDisciplina,
+            @RequestBody Att2BimDTO dto) {
+
+        return adService.Att2Bim(idAluno, idDisciplina, dto);
     }
 }
