@@ -10,8 +10,10 @@ import java.util.List;
 
 @Service
 public class DisciplinaService {
-    @Autowired
+
     private final DisciplinaRepository disciplinaRepository;
+
+    @Autowired
     public DisciplinaService(DisciplinaRepository disciplinaRepository){
         this.disciplinaRepository = disciplinaRepository;
     }

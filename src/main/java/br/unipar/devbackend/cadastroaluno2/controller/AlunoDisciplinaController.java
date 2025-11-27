@@ -41,4 +41,12 @@ public class AlunoDisciplinaController {
     public AlunoDisciplina atualizar(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
         return adService.atualizar(id, alunoDisciplina);
     }
+    @PutMapping("/1bim/{id}")
+    public AlunoDisciplina atualizar1b(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
+        return adService.atualizar1b(id, alunoDisciplina);
+    }
+    @PutMapping("/2bim/{id}")
+    public AlunoDisciplina atualizar2b(@PathVariable Long id, @RequestBody AlunoDisciplina alunoDisciplina) {
+        return adService.atualizar2b(id, alunoDisciplina);
+    }
 }

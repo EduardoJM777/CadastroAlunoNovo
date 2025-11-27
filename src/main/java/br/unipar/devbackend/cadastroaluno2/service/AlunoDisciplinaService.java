@@ -10,9 +10,10 @@ import java.util.List;
 @Service
 public class AlunoDisciplinaService {
 
-    @Autowired
+
     private final AlunoDisciplinaRepository adRepository;
 
+    @Autowired
     public AlunoDisciplinaService(AlunoDisciplinaRepository adRepository){
         this.adRepository = adRepository;
     }
@@ -38,6 +39,22 @@ public class AlunoDisciplinaService {
             return adRepository.save(alunoDisciplina);
         }).orElseThrow(() -> new RuntimeException("Não encontrada(o)"));
     }
+
+    public AlunoDisciplina atualizar1b(Long id, AlunoDisciplina adAtualizada) {
+        return adRepository.findById(id).map(alunoDisciplina -> {
+            alunoDisciplina.setNota1Bim(adAtualizada.getNota1Bim());
+            alunoDisciplina.setFaltas1Bim(adAtualizada.getFaltas1Bim());
+            return adRepository.save(alunoDisciplina);
+        }).orElseThrow(() -> new RuntimeException("Não encontrada(o)"));
+    }
+
+        public AlunoDisciplina atualizar2b(Long id, AlunoDisciplina adAtualizada) {
+            return adRepository.findById(id).map(alunoDisciplina -> {
+                alunoDisciplina.setNota2Bim(adAtualizada.getNota2Bim());
+                alunoDisciplina.setFaltas2Bim(adAtualizada.getFaltas2Bim());
+                return adRepository.save(alunoDisciplina);
+            }).orElseThrow(() -> new RuntimeException("Não encontrada(o)"));
+        }
 
     public AlunoDisciplina buscarPorId(Long id){
         return adRepository.findById(id).orElseThrow(() -> new RuntimeException("Não encontrada(o)"));

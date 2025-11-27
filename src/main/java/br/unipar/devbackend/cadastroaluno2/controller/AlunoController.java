@@ -1,6 +1,5 @@
 package br.unipar.devbackend.cadastroaluno2.controller;
 
-import br.unipar.devbackend.cadastroaluno2.dto.AlunoDTO;
 import br.unipar.devbackend.cadastroaluno2.model.Aluno;
 import br.unipar.devbackend.cadastroaluno2.service.AlunoService;
 import org.springframework.web.bind.annotation.*;
