@@ -1,5 +1,6 @@
 package br.unipar.devbackend.cadastroaluno2.controller;
 
+import br.unipar.devbackend.cadastroaluno2.model.Aluno;
 import br.unipar.devbackend.cadastroaluno2.model.Disciplina;
 import br.unipar.devbackend.cadastroaluno2.service.DisciplinaService;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,22 @@ public class DisciplinaController {
         return disciplinaService.listar();
     }
 
-    @GetMapping("/{id}")
-    public Disciplina buscarPorId(@PathVariable Long id) {
-        return disciplinaService.buscarPorId(id);
+    @GetMapping("/{codigo}")
+    public Disciplina buscarPorCodigo(@PathVariable String codigo){
+        Disciplina disciplina = disciplinaService.buscarPorCodigo(codigo);
+        return disciplina;
+    }
+
+    @GetMapping("/professor/{idProfessor}")
+    public List<Disciplina> listarPorProfessor(@PathVariable Long idProfessor){
+        List<Disciplina> disciplinas = disciplinaService.listarPorProfessor(idProfessor);
+        return disciplinas;
+    }
+
+    @GetMapping("/matriculados/{idDisciplina}")
+    public List<Aluno> listarMatriculados(@PathVariable Long idDisciplina){
+        List<Aluno> alunos = disciplinaService.listarAlunosMatriculados(idDisciplina);
+        return alunos;
     }
 
     @PutMapping("/{id}")

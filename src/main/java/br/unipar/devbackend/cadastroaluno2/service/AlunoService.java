@@ -1,10 +1,6 @@
 package br.unipar.devbackend.cadastroaluno2.service;
 
-import br.unipar.devbackend.cadastroaluno2.dto.AlunoDTO;
-import br.unipar.devbackend.cadastroaluno2.mapper.AlunoMapper;
 import br.unipar.devbackend.cadastroaluno2.model.Aluno;
-import br.unipar.devbackend.cadastroaluno2.model.AlunoDisciplina;
-import br.unipar.devbackend.cadastroaluno2.repository.AlunoDisciplinaRepository;
 import br.unipar.devbackend.cadastroaluno2.repository.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

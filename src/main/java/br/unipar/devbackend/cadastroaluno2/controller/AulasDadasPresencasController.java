@@ -1,11 +1,8 @@
 package br.unipar.devbackend.cadastroaluno2.controller;
 
-import br.unipar.devbackend.cadastroaluno2.dto.AulasDadasDTO;
 import br.unipar.devbackend.cadastroaluno2.dto.AulasDadasPresencasDTO;
-import br.unipar.devbackend.cadastroaluno2.model.AulasDadas;
 import br.unipar.devbackend.cadastroaluno2.model.AulasDadasPresencas;
 import br.unipar.devbackend.cadastroaluno2.service.AulasDadasPresencasService;
-import br.unipar.devbackend.cadastroaluno2.service.AulasDadasService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +18,11 @@ public class AulasDadasPresencasController {
         this.adpService = adpService;
     }
 
-    @PostMapping
-    public AulasDadasPresencas cadastrar(@RequestBody AulasDadasPresencas aulasDadasPresencas) {
-        return adpService.salvar(aulasDadasPresencas);
+    @PostMapping("{idAulaDada}")
+    public List<AulasDadasPresencas> registrarPresencas(
+            @PathVariable Long idAulaDada,
+            @RequestBody List<AulasDadasPresencasDTO> presencasDTO) {
+        return adpService.registrarPresencas(idAulaDada, presencasDTO);
     }
 
     @GetMapping

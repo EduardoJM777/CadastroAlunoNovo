@@ -20,13 +20,7 @@ public class AulasDadasPresencasMapper {
         if (dto == null) return null;
 
         AulasDadasPresencas entity = new AulasDadasPresencas();
-        entity.setId(dto.id());
         entity.setFalta(dto.falta());
-
-        entity.setAulasDadas(
-                aulasDadasRepository.findById(dto.idAulasDadas())
-                        .orElseThrow(() -> new RuntimeException("Não encontrado(a)"))
-        );
 
         entity.setAluno(
                 alunoRepository.findById(dto.idAluno())
@@ -41,10 +35,8 @@ public class AulasDadasPresencasMapper {
         if (entity == null) return null;
 
         return new AulasDadasPresencasDTO(
-                entity.getId(),
-                entity.getFalta(),
-                entity.getAulasDadas().getId(),
-                entity.getAluno().getId()
+                entity.getAluno().getId(),
+                entity.getFalta()
         );
     }
 

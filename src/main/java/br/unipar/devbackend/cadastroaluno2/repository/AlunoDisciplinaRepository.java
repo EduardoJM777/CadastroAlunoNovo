@@ -9,9 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface AlunoDisciplinaRepository extends JpaRepository<AlunoDisciplina, Long> {
+
     Optional<AlunoDisciplina> findByAlunoIdAndDisciplinaId(Long alunoId, Long disciplinaId);
     List<AlunoDisciplina> findByAlunoId(Long idAluno);
-
-
-
+    List<AlunoDisciplina> findByDisciplinaIdAndMatriculadoTrue(Long disciplinaId);
 }
